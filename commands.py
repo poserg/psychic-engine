@@ -1,4 +1,5 @@
 import DatabaseManager
+from datatime import datetime
 
 db = DatabaseManager('bookmarks.db')
 
@@ -13,3 +14,10 @@ class CreateBookmarksTableCommand:
 				'notes': 'text', 
 				'date_added': 'text not null',
 			})
+
+
+class AddBookmakrCommand:
+	def execute(self, data):
+		data['date_added'] = datetime.utcnow().isoformat()
+		db.add('bookmarks', data)
+		return 'Bookmark added!'
