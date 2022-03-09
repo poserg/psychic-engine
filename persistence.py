@@ -21,7 +21,7 @@ class DatabaseManager:
 		self._execute(
 			f'''
 			CREATE TABLE IF NOT EXISTS {table_name}
-			({', '.join(columns_wity_types)});
+			({', '.join(columns_with_types)});
 			'''
 		)
 

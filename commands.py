@@ -1,5 +1,5 @@
-import DatabaseManager
-from datatime import datetime
+from persistence import DatabaseManager
+from datetime import datetime
 import sys
 
 db = DatabaseManager('bookmarks.db')
