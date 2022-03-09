@@ -21,3 +21,10 @@ class AddBookmakrCommand:
 		data['date_added'] = datetime.utcnow().isoformat()
 		db.add('bookmarks', data)
 		return 'Bookmark added!'
+
+class ListBookmakrCommand:
+	def __init__(self, order_by='date_added'):
+		self.order_by = order_by
+
+	def execute(self):
+		return db.select('bookmarks', order_by=self.order_by).fetchall()
