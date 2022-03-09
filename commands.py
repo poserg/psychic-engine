@@ -1,5 +1,6 @@
 import DatabaseManager
 from datatime import datetime
+import sys
 
 db = DatabaseManager('bookmarks.db')
 
@@ -34,3 +35,8 @@ class DeleteBookmarkCommand:
 	def execute(self, data):
 		db.delete('bookmarks', {'id': data})
 		return 'Bookmark deleted!'
+
+class QuitCommand:
+
+	def execute(self):
+		sys.exit()
