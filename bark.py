@@ -3,6 +3,7 @@
 import commands
 import os
 
+
 class Option:
 	def __init__(self, name, command, prep_call=None):
 		self.name = name
@@ -17,13 +18,16 @@ class Option:
 	def __str__(self):
 		return self.name
 
+
 def print_options(options):
 	for shortcut, option in options.items():
 		print(f'({shortcut}) {option}')
 		print()
 
+
 def option_choice_is_valid(choice, options):
 	return choice in options or choice.upper() in options
+
 
 def get_option_choice(options):
 	choice = input('Choice an option: ')
@@ -32,11 +36,13 @@ def get_option_choice(options):
 		choice = input('Choice an option: ')
 	return options[choice.upper()]
 
+
 def get_user_input(label, required=True):
 	value = input(f'{label}: ') or None
 	while required and not value:
 		value = input(f'{label}: ') or None
 	return value
+
 
 def get_new_bookmark_data():
 	return {
@@ -45,12 +51,15 @@ def get_new_bookmark_data():
 		'notes': get_user_input('Notes', required=False),
 	}
 
+
 def get_bookmark_id_for_deletion():
 	return get_user_input('Enter a bookmark ID to delete')
+
 
 def clear_screen():
 	clear = 'cls' if os.name == 'nt' else 'clear'
 	os.system(clear)
+
 
 if __name__ == '__main__':
 	commands.CreateBookmarksTableCommand().execute()
