@@ -17,13 +17,13 @@ class CreateBookmarksTableCommand:
 			})
 
 
-class AddBookmakrCommand:
+class AddBookmarkCommand:
 	def execute(self, data):
 		data['date_added'] = datetime.utcnow().isoformat()
 		db.add('bookmarks', data)
 		return 'Bookmark added!'
 
-class ListBookmakrCommand:
+class ListBookmarksCommand:
 	def __init__(self, order_by='date_added'):
 		self.order_by = order_by
 
