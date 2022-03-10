@@ -27,13 +27,13 @@ class DatabaseManager:
 
 	def add(self, table_name, data):
 		placeholders = ', '.join('?' * len(data))
-		column_names = ', '.join(data.keys)
+		column_names = ', '.join(data.keys())
 		column_values = tuple(data.values())
 
 		self._execute(
 			f'''
 			INSERT INTO {table_name}
-			({column_values})
+			({column_names})
 			VALUES ({placeholders});
 			''',
 			column_values

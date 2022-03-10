@@ -10,7 +10,7 @@ class CreateBookmarksTableCommand:
 			'bookmarks',
 			{
 				'id': 'integer primary key autoincrement',
-				'titile': 'text not null',
+				'title': 'text not null',
 				'url': 'text not null',
 				'notes': 'text', 
 				'date_added': 'text not null',
