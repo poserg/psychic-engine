@@ -1,4 +1,4 @@
-from persistence import DatabaseManager
+from database import DatabaseManager
 from datetime import datetime
 import sys
 
