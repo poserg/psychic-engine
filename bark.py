@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import commands
+import os
 
 class Option:
 	def __init__(self, name, command, prep_call=None):
@@ -47,6 +48,10 @@ def get_new_bookmark_data():
 def get_bookmark_id_for_deletion():
 	return get_user_input('Enter a bookmark ID to delete')
 
+def clear_screen():
+	clear = 'cls' if os.name == 'nt' else 'clear'
+	os.system(clear)
+
 if __name__ == '__main__':
 	commands.CreateBookmarksTableCommand().execute()
 
@@ -61,7 +66,9 @@ if __name__ == '__main__':
 			prep_call=get_bookmark_id_for_deletion),
 		'Q': Option('Quit', commands.QuitCommand())
 	}
+	clear_screen()
 	print_options(options)
 
 	choosen_option = get_option_choice(options)
+	clear_screen()
 	choosen_option.choose()
