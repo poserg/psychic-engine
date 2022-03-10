@@ -61,9 +61,7 @@ def clear_screen():
 	os.system(clear)
 
 
-if __name__ == '__main__':
-	commands.CreateBookmarksTableCommand().execute()
-
+def loop():
 	options = {
 		'A': Option('Add a bookmark', commands.AddBookmarkCommand(),
 			prep_call=get_new_bookmark_data),
@@ -81,3 +79,11 @@ if __name__ == '__main__':
 	choosen_option = get_option_choice(options)
 	clear_screen()
 	choosen_option.choose()
+	_ = input('Press ENTER to return to menu')
+
+
+if __name__ == '__main__':
+	commands.CreateBookmarksTableCommand().execute()
+
+	while True:
+		loop()
